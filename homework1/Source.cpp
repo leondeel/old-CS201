@@ -6,17 +6,22 @@ using std::endl;
 
 int main(int argc, char** argv) {
 
-	int UserInput , i=1, RowNumber=1, AmountNeededInRow=1;
+	int UserInput, SpacesNeededinRow, ColumnNumber = 1, RowNumber = 1, HashtagsNeededInRow = 1;
 	cout << "Enter a positive integer:  ";
 	cin >> UserInput;
 	while (RowNumber <= UserInput) {
-		while (i <= AmountNeededInRow) {
+		SpacesNeededinRow = UserInput - RowNumber;
+		while (ColumnNumber <= HashtagsNeededInRow) {
+			while (SpacesNeededinRow>0) {
+				cout << " ";
+				SpacesNeededinRow--;
+			}
 			cout << "#";
-			i++;
+			ColumnNumber++;
 		}
 		cout << endl;
-		i = 1;
-		AmountNeededInRow = RowNumber + 2;
+		ColumnNumber = 1;
+		HashtagsNeededInRow = 2*RowNumber+1;
 		RowNumber++;
 		
 	}
