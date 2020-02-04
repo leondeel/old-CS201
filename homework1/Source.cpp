@@ -34,8 +34,8 @@ int main(int argc, char** argv) {
 		Row++;
 	}
 
-	Row = UserInput-1;  
 	//Everything is going to be backwards now.  We will be counting the Row down to zero instead of up from 1 as before. The second half of this code is similar but different to the first half. 
+	Row = UserInput - 1;
 	while (Row >0) {
 		SpacesNeededInRow = UserInput - Row;
 		HashtagsInRow = 0;
