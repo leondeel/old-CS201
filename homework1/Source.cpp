@@ -18,15 +18,16 @@ int main(int argc, char** argv) {
 		cout << "Thank you!" << endl;
 	}
 	while (Row <= UserInput) {
-		SpacesNeededInRow = UserInput - Row;
+
 		HashtagsInRow = 0;
-		HashtagsNeededInRow = 2*Row-1;
-		
+		HashtagsNeededInRow = 2 * Row - 1;
+		SpacesNeededInRow = UserInput - Row;
+
+		while (SpacesNeededInRow > 0) {
+			cout << " ";
+			SpacesNeededInRow--;
+		}
 		while (HashtagsInRow < HashtagsNeededInRow) {
-			while (SpacesNeededInRow>0) {
-				cout << " ";
-				SpacesNeededInRow--;
-			}
 			cout << "#";
 			HashtagsInRow++;
 		}
@@ -37,15 +38,16 @@ int main(int argc, char** argv) {
 	//Everything is going to be backwards now.  We will be counting the Row down to zero instead of up from 1 as before. The second half of this code is similar but different to the first half. 
 	Row = UserInput - 1;
 	while (Row >0) {
-		SpacesNeededInRow = UserInput - Row;
+
 		HashtagsInRow = 0;
 		HashtagsNeededInRow = 2 * Row - 1;
+		SpacesNeededInRow = UserInput - Row;
 
+		while (SpacesNeededInRow > 0) {
+			cout << " ";
+			SpacesNeededInRow--;
+		}
 		while (HashtagsInRow < HashtagsNeededInRow) {
-			while (SpacesNeededInRow > 0) {
-				cout << " ";
-				SpacesNeededInRow--;
-			}
 			cout << "#";
 			HashtagsInRow++;
 		}
