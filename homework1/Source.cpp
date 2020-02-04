@@ -10,13 +10,24 @@ int main(int argc, char** argv) {
 	cout << "Enter a positive integer:  ";
 	cin >> UserInput;
 
-	while (UserInput < 1) {
-		cout << "You entered zero or a negative integer.  Enter a positive integer:  ";
-		cin >> UserInput;
+	while (cin.fail() || UserInput < 1) {
+		if (cin.fail()) {
+			cout << "You didn't enter an integer.  Enter a positive integer:  ";
+			cin.clear();
+			cin.ignore(256, '\n');
+			cin >> UserInput;
+		}
+		else {
+			cout << "You entered zero or a negative integer.  Enter a positive integer:  ";
+			cin.clear();
+			cin.ignore(256, '\n');
+			cin >> UserInput;
+
+		}
 	}
-	if (UserInput > 0) {
-		cout << "Thank you!" << endl;
-	}
+
+	cout << "Thank you!" << endl;
+
 	while (Row <= UserInput) {
 
 		HashtagsInRow = 0;
