@@ -3,50 +3,53 @@ using std::cout;
 using std::cin;
 using std::endl;
 
-
 int main(int argc, char** argv) {
 
-	int UserInput, SpacesNeededinRow, HashtagsInRow = 1, HashtagsNeededInRow = 1, RowNumber = 1;
+	int UserInput, SpacesNeededInRow, HashtagsInRow, HashtagsNeededInRow, Row = 1;
+
 	cout << "Enter a positive integer:  ";
 	cin >> UserInput;
-	while (RowNumber <= UserInput) {
-		SpacesNeededinRow = UserInput - RowNumber;
-		while (HashtagsInRow <= HashtagsNeededInRow) {
-			while (SpacesNeededinRow>0) {
+
+	while (UserInput < 1) {
+		cout << "You entered zero or a negative integer.  Enter a positive integer:  ";
+		cin >> UserInput;
+	}
+	if (UserInput > 0) {
+		cout << "Thank you!" << endl;
+	}
+	while (Row <= UserInput) {
+		SpacesNeededInRow = UserInput - Row;
+		HashtagsInRow = 0;
+		HashtagsNeededInRow = 2*Row-1;
+		
+		while (HashtagsInRow < HashtagsNeededInRow) {
+			while (SpacesNeededInRow>0) {
 				cout << " ";
-				SpacesNeededinRow--;
+				SpacesNeededInRow--;
 			}
 			cout << "#";
 			HashtagsInRow++;
 		}
 		cout << endl;
-		HashtagsInRow = 1;
-		HashtagsNeededInRow = 2*RowNumber+1;
-		RowNumber++;
-		
+		Row++;
 	}
 
-	RowNumber = UserInput-1;  //Everything is going to be backwards now.  We will be counting the RowNumber down to zero instead of up from 1 as before. The second half of this code is similar but different to the first half.
-	HashtagsNeededInRow = 2*(RowNumber-1) +1;
+	Row = UserInput-1;  
+	//Everything is going to be backwards now.  We will be counting the Row down to zero instead of up from 1 as before. The second half of this code is similar but different to the first half. 
+	while (Row >0) {
+		SpacesNeededInRow = UserInput - Row;
+		HashtagsInRow = 0;
+		HashtagsNeededInRow = 2 * Row - 1;
 
-	while (RowNumber >0) {
-		SpacesNeededinRow = UserInput-RowNumber;
-		while (HashtagsInRow <= HashtagsNeededInRow) {
-			while (SpacesNeededinRow > 0) {
+		while (HashtagsInRow < HashtagsNeededInRow) {
+			while (SpacesNeededInRow > 0) {
 				cout << " ";
-				SpacesNeededinRow--;
+				SpacesNeededInRow--;
 			}
 			cout << "#";
 			HashtagsInRow++;
 		}
 		cout << endl;
-		HashtagsInRow = 1;
-		RowNumber--;
-		HashtagsNeededInRow = 2 * (RowNumber - 1) + 1;
-		
-
+		Row--;
 	}
-
-
-
 }	
